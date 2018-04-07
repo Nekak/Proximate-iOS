@@ -1,0 +1,710 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0519C3C520784BD000EC2E08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0519C3C420784BD000EC2E08 /* AppDelegate.swift */; };
+		0519C3CF20784BD100EC2E08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0519C3CE20784BD100EC2E08 /* Assets.xcassets */; };
+		0519C3D220784BD100EC2E08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0519C3D020784BD100EC2E08 /* LaunchScreen.storyboard */; };
+		0519C3DD20784BD100EC2E08 /* ProximateTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0519C3DC20784BD100EC2E08 /* ProximateTestTests.swift */; };
+		0519C3E820784BD200EC2E08 /* ProximateTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0519C3E720784BD200EC2E08 /* ProximateTestUITests.swift */; };
+		0525A34120788559004C66EC /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0525A34020788559004C66EC /* DBManager.swift */; };
+		05944C5D20784CF600ADD552 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05944C5B20784CF600ADD552 /* LoginViewController.swift */; };
+		05944C5E20784CF600ADD552 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05944C5C20784CF600ADD552 /* LoginViewController.xib */; };
+		05946DC420785AC500523F59 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05946DC320785AC500523F59 /* Extensions.swift */; };
+		05946DC7207860BE00523F59 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05946DC6207860BE00523F59 /* NetworkManager.swift */; };
+		05946DC92078614000523F59 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05946DC82078614000523F59 /* Constants.swift */; };
+		05946DCD20786FE600523F59 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05946DCB20786FE600523F59 /* ProfileViewController.swift */; };
+		05946DCE20786FE600523F59 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05946DCC20786FE600523F59 /* ProfileViewController.xib */; };
+		AB3DA1EECDA00007644B0852 /* Pods_ProximateTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D7F26AC4A09B53D8E9FF2B /* Pods_ProximateTest.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0519C3D920784BD100EC2E08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0519C3B920784BCF00EC2E08 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0519C3C020784BD000EC2E08;
+			remoteInfo = ProximateTest;
+		};
+		0519C3E420784BD200EC2E08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0519C3B920784BCF00EC2E08 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0519C3C020784BD000EC2E08;
+			remoteInfo = ProximateTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0519C3C120784BD000EC2E08 /* ProximateTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProximateTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0519C3C420784BD000EC2E08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0519C3CE20784BD100EC2E08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0519C3D120784BD100EC2E08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0519C3D320784BD100EC2E08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0519C3D820784BD100EC2E08 /* ProximateTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProximateTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0519C3DC20784BD100EC2E08 /* ProximateTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximateTestTests.swift; sourceTree = "<group>"; };
+		0519C3DE20784BD200EC2E08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0519C3E320784BD200EC2E08 /* ProximateTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProximateTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0519C3E720784BD200EC2E08 /* ProximateTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximateTestUITests.swift; sourceTree = "<group>"; };
+		0519C3E920784BD200EC2E08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0525A34020788559004C66EC /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		05944C5B20784CF600ADD552 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		05944C5C20784CF600ADD552 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		05946DC320785AC500523F59 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		05946DC6207860BE00523F59 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		05946DC82078614000523F59 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		05946DCB20786FE600523F59 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		05946DCC20786FE600523F59 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		38D7F26AC4A09B53D8E9FF2B /* Pods_ProximateTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProximateTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		610771631BAD23F964BF77EF /* Pods-ProximateTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProximateTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProximateTest/Pods-ProximateTest.release.xcconfig"; sourceTree = "<group>"; };
+		7250DECAC734EC11E3C55AA8 /* Pods-ProximateTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProximateTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProximateTest/Pods-ProximateTest.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0519C3BE20784BD000EC2E08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB3DA1EECDA00007644B0852 /* Pods_ProximateTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0519C3D520784BD100EC2E08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0519C3E020784BD200EC2E08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0519C3B820784BCF00EC2E08 = {
+			isa = PBXGroup;
+			children = (
+				0519C3C320784BD000EC2E08 /* ProximateTest */,
+				0519C3DB20784BD100EC2E08 /* ProximateTestTests */,
+				0519C3E620784BD200EC2E08 /* ProximateTestUITests */,
+				0519C3C220784BD000EC2E08 /* Products */,
+				20BBBADCB5352CFD002A2584 /* Pods */,
+				1DF9A1F161EDA486B02CF323 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0519C3C220784BD000EC2E08 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0519C3C120784BD000EC2E08 /* ProximateTest.app */,
+				0519C3D820784BD100EC2E08 /* ProximateTestTests.xctest */,
+				0519C3E320784BD200EC2E08 /* ProximateTestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0519C3C320784BD000EC2E08 /* ProximateTest */ = {
+			isa = PBXGroup;
+			children = (
+				0519C3C420784BD000EC2E08 /* AppDelegate.swift */,
+				05944C5F20784D0000ADD552 /* controllers */,
+				05946DC520785FA800523F59 /* helpers */,
+				05944C6020784D0D00ADD552 /* views */,
+				0519C3CE20784BD100EC2E08 /* Assets.xcassets */,
+				0519C3D020784BD100EC2E08 /* LaunchScreen.storyboard */,
+				0519C3D320784BD100EC2E08 /* Info.plist */,
+			);
+			path = ProximateTest;
+			sourceTree = "<group>";
+		};
+		0519C3DB20784BD100EC2E08 /* ProximateTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				0519C3DC20784BD100EC2E08 /* ProximateTestTests.swift */,
+				0519C3DE20784BD200EC2E08 /* Info.plist */,
+			);
+			path = ProximateTestTests;
+			sourceTree = "<group>";
+		};
+		0519C3E620784BD200EC2E08 /* ProximateTestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0519C3E720784BD200EC2E08 /* ProximateTestUITests.swift */,
+				0519C3E920784BD200EC2E08 /* Info.plist */,
+			);
+			path = ProximateTestUITests;
+			sourceTree = "<group>";
+		};
+		05944C5F20784D0000ADD552 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				05944C5B20784CF600ADD552 /* LoginViewController.swift */,
+				05946DCB20786FE600523F59 /* ProfileViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		05944C6020784D0D00ADD552 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				05944C5C20784CF600ADD552 /* LoginViewController.xib */,
+				05946DCC20786FE600523F59 /* ProfileViewController.xib */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		05946DC520785FA800523F59 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				05946DC82078614000523F59 /* Constants.swift */,
+				05946DC320785AC500523F59 /* Extensions.swift */,
+				05946DC6207860BE00523F59 /* NetworkManager.swift */,
+				0525A34020788559004C66EC /* DBManager.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		1DF9A1F161EDA486B02CF323 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38D7F26AC4A09B53D8E9FF2B /* Pods_ProximateTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		20BBBADCB5352CFD002A2584 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7250DECAC734EC11E3C55AA8 /* Pods-ProximateTest.debug.xcconfig */,
+				610771631BAD23F964BF77EF /* Pods-ProximateTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0519C3C020784BD000EC2E08 /* ProximateTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0519C3EC20784BD200EC2E08 /* Build configuration list for PBXNativeTarget "ProximateTest" */;
+			buildPhases = (
+				F946229720B1A67386772223 /* [CP] Check Pods Manifest.lock */,
+				0519C3BD20784BD000EC2E08 /* Sources */,
+				0519C3BE20784BD000EC2E08 /* Frameworks */,
+				0519C3BF20784BD000EC2E08 /* Resources */,
+				C7B483B6F2576DBAD9535B03 /* [CP] Embed Pods Frameworks */,
+				00971B16597CDD926A08816C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ProximateTest;
+			productName = ProximateTest;
+			productReference = 0519C3C120784BD000EC2E08 /* ProximateTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0519C3D720784BD100EC2E08 /* ProximateTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0519C3EF20784BD200EC2E08 /* Build configuration list for PBXNativeTarget "ProximateTestTests" */;
+			buildPhases = (
+				0519C3D420784BD100EC2E08 /* Sources */,
+				0519C3D520784BD100EC2E08 /* Frameworks */,
+				0519C3D620784BD100EC2E08 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0519C3DA20784BD100EC2E08 /* PBXTargetDependency */,
+			);
+			name = ProximateTestTests;
+			productName = ProximateTestTests;
+			productReference = 0519C3D820784BD100EC2E08 /* ProximateTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0519C3E220784BD200EC2E08 /* ProximateTestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0519C3F220784BD200EC2E08 /* Build configuration list for PBXNativeTarget "ProximateTestUITests" */;
+			buildPhases = (
+				0519C3DF20784BD200EC2E08 /* Sources */,
+				0519C3E020784BD200EC2E08 /* Frameworks */,
+				0519C3E120784BD200EC2E08 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0519C3E520784BD200EC2E08 /* PBXTargetDependency */,
+			);
+			name = ProximateTestUITests;
+			productName = ProximateTestUITests;
+			productReference = 0519C3E320784BD200EC2E08 /* ProximateTestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0519C3B920784BCF00EC2E08 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Ramses Rodríguez";
+				TargetAttributes = {
+					0519C3C020784BD000EC2E08 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					0519C3D720784BD100EC2E08 = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = 0519C3C020784BD000EC2E08;
+					};
+					0519C3E220784BD200EC2E08 = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = 0519C3C020784BD000EC2E08;
+					};
+				};
+			};
+			buildConfigurationList = 0519C3BC20784BCF00EC2E08 /* Build configuration list for PBXProject "ProximateTest" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0519C3B820784BCF00EC2E08;
+			productRefGroup = 0519C3C220784BD000EC2E08 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0519C3C020784BD000EC2E08 /* ProximateTest */,
+				0519C3D720784BD100EC2E08 /* ProximateTestTests */,
+				0519C3E220784BD200EC2E08 /* ProximateTestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0519C3BF20784BD000EC2E08 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0519C3D220784BD100EC2E08 /* LaunchScreen.storyboard in Resources */,
+				0519C3CF20784BD100EC2E08 /* Assets.xcassets in Resources */,
+				05946DCE20786FE600523F59 /* ProfileViewController.xib in Resources */,
+				05944C5E20784CF600ADD552 /* LoginViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0519C3D620784BD100EC2E08 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0519C3E120784BD200EC2E08 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00971B16597CDD926A08816C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ProximateTest/Pods-ProximateTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7B483B6F2576DBAD9535B03 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ProximateTest/Pods-ProximateTest-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ProximateTest/Pods-ProximateTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F946229720B1A67386772223 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ProximateTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0519C3BD20784BD000EC2E08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05944C5D20784CF600ADD552 /* LoginViewController.swift in Sources */,
+				05946DC7207860BE00523F59 /* NetworkManager.swift in Sources */,
+				0519C3C520784BD000EC2E08 /* AppDelegate.swift in Sources */,
+				05946DCD20786FE600523F59 /* ProfileViewController.swift in Sources */,
+				05946DC420785AC500523F59 /* Extensions.swift in Sources */,
+				05946DC92078614000523F59 /* Constants.swift in Sources */,
+				0525A34120788559004C66EC /* DBManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0519C3D420784BD100EC2E08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0519C3DD20784BD100EC2E08 /* ProximateTestTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0519C3DF20784BD200EC2E08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0519C3E820784BD200EC2E08 /* ProximateTestUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0519C3DA20784BD100EC2E08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0519C3C020784BD000EC2E08 /* ProximateTest */;
+			targetProxy = 0519C3D920784BD100EC2E08 /* PBXContainerItemProxy */;
+		};
+		0519C3E520784BD200EC2E08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0519C3C020784BD000EC2E08 /* ProximateTest */;
+			targetProxy = 0519C3E420784BD200EC2E08 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0519C3D020784BD100EC2E08 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0519C3D120784BD100EC2E08 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0519C3EA20784BD200EC2E08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0519C3EB20784BD200EC2E08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0519C3ED20784BD200EC2E08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7250DECAC734EC11E3C55AA8 /* Pods-ProximateTest.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ProximateTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.neklien.ProximateTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		0519C3EE20784BD200EC2E08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 610771631BAD23F964BF77EF /* Pods-ProximateTest.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ProximateTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.neklien.ProximateTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		0519C3F020784BD200EC2E08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ProximateTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.neklien.ProximateTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProximateTest.app/ProximateTest";
+			};
+			name = Debug;
+		};
+		0519C3F120784BD200EC2E08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ProximateTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.neklien.ProximateTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProximateTest.app/ProximateTest";
+			};
+			name = Release;
+		};
+		0519C3F320784BD200EC2E08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ProximateTestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.neklien.ProximateTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ProximateTest;
+			};
+			name = Debug;
+		};
+		0519C3F420784BD200EC2E08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ProximateTestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.neklien.ProximateTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ProximateTest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0519C3BC20784BCF00EC2E08 /* Build configuration list for PBXProject "ProximateTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0519C3EA20784BD200EC2E08 /* Debug */,
+				0519C3EB20784BD200EC2E08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0519C3EC20784BD200EC2E08 /* Build configuration list for PBXNativeTarget "ProximateTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0519C3ED20784BD200EC2E08 /* Debug */,
+				0519C3EE20784BD200EC2E08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0519C3EF20784BD200EC2E08 /* Build configuration list for PBXNativeTarget "ProximateTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0519C3F020784BD200EC2E08 /* Debug */,
+				0519C3F120784BD200EC2E08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0519C3F220784BD200EC2E08 /* Build configuration list for PBXNativeTarget "ProximateTestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0519C3F320784BD200EC2E08 /* Debug */,
+				0519C3F420784BD200EC2E08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0519C3B920784BCF00EC2E08 /* Project object */;
+}
