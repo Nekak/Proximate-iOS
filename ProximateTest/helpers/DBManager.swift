@@ -10,22 +10,11 @@ import UIKit
 import FMDB
 
 class DBManager: NSObject {
-    static let shared: DBManager = DBManager()
-    
     let databaseFileName = "proximateDB.sqlite"
     var pathToDatabase: String!
     var database: FMDatabase!
     
-    let tableName = "user"
-    
-    let fieldUserId = "userId"
-    let fieldName = "name"
-    let fieldAge = "age"
-    let fieldJob = "job"
-    let fieldIntroduction = "introduction"
-    let fieldPathPicture = "pathPicture"
-    let fieldLatitude = "latitude"
-    let fieldLongitude = "longitude"
+    static let shared: DBManager = DBManager()
     
     override init() {
         super.init()
@@ -43,10 +32,17 @@ class DBManager: NSObject {
             if database != nil {
                 // Open the database.
                 if database.open() {
-                    let createUserTableQuery = "CREATE TABLE \(tableName) (\(fieldUserId) INTEGER PRIMARY KEY NOT NULL, \(fieldName) TEXT, \(fieldAge) INTEGER, \(fieldJob) TEXT, \(fieldIntroduction) TEXT, \(fieldPathPicture) TEXT, \(fieldLatitude) DOUBLE, \(fieldLongitude) DOUBLE)"
+                    let createUserTableQuery = "CREATE TABLE \(tableUser) (\(uFieldIdUser) INTEGER PRIMARY KEY NOT NULL, \(uFieldNames) TEXT, \(uFieldLastnames) TEXT, \(uFieldEmail) TEXT, \(uFieldDocNumber) TEXT, \(uFieldLastLogin) TEXT, \(uFieldDeleted) INTEGER, \(uFieldIdDocuments) INTEGER, \(uFieldDocumentsAbb) TEXT, \(uFieldDocumentsLabel) TEXT, \(uFieldUserStatusLabel) TEXT, \(uFieldPathPicture) TEXT, \(uFieldLatitude) DOUBLE, \(uFieldLongitude) DOUBLE)"
+                    
+                    let createSectionTableQuery = "CREATE TABLE \(tableSection) (\(sFieldIdSection) INTEGER PRIMARY KEY NOT NULL, \(sFieldSectionName) TEXT, \(sFieldAbbrev) TEXT)"
+                    
+                    let createUserSectionTableQuery = "CREATE TABLE \(tableUserSection) (\(usFieldIdUserSection) INTEGER PRIMARY KEY NOT NULL, \(usFieldIdUser) INTEGER NOT NULL, \(usFieldIdSection) INTEGER NOT NULL, FOREIGN KEY (\(usFieldIdUser)) REFERENCES \(tableUser), FOREIGN KEY (\(usFieldIdSection)) REFERENCES \(tableSection))"
                     
                     do {
                         try database.executeUpdate(createUserTableQuery, values: nil)
+                        try database.executeUpdate(createSectionTableQuery, values: nil)
+                        try database.executeUpdate(createUserSectionTableQuery, values: nil)
+                        
                         created = true
                     }
                     catch {
@@ -79,37 +75,63 @@ class DBManager: NSObject {
         return false
     }
     
-    func insertUserData(userData:(name:String, age:Int, job:String, introduction:String, picturePath:String, latitude:Double, longitude:Double)){
+    func insertUserData(userData:User){
         if openDatabase(){
-            let query = "INSERT INTO \(tableName) (\(fieldUserId), \(fieldName),\(fieldAge),\(fieldJob),\(fieldIntroduction),\(fieldPathPicture),\(fieldLatitude),\(fieldLongitude)) VALUES (null, '\(userData.name)', \(userData.age), '\(userData.job)', '\(userData.introduction)', '\(userData.picturePath)',\(userData.latitude),\(userData.longitude))"
+            let queryUser = "INSERT INTO \(tableUser) (\(uFieldIdUser), \(uFieldNames), \(uFieldLastnames), \(uFieldEmail), \(uFieldDocNumber), \(uFieldLastLogin) , \(uFieldDeleted), \(uFieldIdDocuments), \(uFieldDocumentsAbb), \(uFieldDocumentsLabel), \(uFieldUserStatusLabel), \(uFieldPathPicture), \(uFieldLatitude), \(uFieldLongitude)) VALUES (\(userData.idUser), '\(userData.names)', '\(userData.lastnames)', '\(userData.email)', '\(userData.documentNumber)', '\(userData.lastLogin)', \(userData.deleted),\(userData.idDocuments),'\(userData.documentsAbb)','\(userData.documentsLabel)', '\(userData.userStatusLabel)','\(userData.pathPicture)', \(userData.latitude), \(userData.longitude))"
             
-            if !database.executeStatements(query) {
+            if !database.executeStatements(queryUser) {
                 print("Failed to insert initial data into the database.")
                 print(database.lastError(), database.lastErrorMessage())
+                
+                return
+            }
+            
+            for (_,section) in userData.sections.enumerated() {
+                let querySection = "INSERT INTO \(tableSection) (\(sFieldIdSection), \(sFieldSectionName), \(sFieldAbbrev)) VALUES (\(section.idSection), '\(section.sectionName)', '\(section.abbrev)')"
+                
+                if !database.executeStatements(querySection) {
+                    print("Failed to insert initial data into the database.")
+                    print(database.lastError(), database.lastErrorMessage())
+                    
+                    break
+                }
+                
+                let queryUserSection = "INSERT INTO \(tableUserSection) (\(usFieldIdUserSection), \(usFieldIdUser), \(usFieldIdSection)) VALUES (null, \(userData.idUser), \(section.idSection))"
+                
+                if !database.executeStatements(queryUserSection) {
+                    print("Failed to insert initial data into the database.")
+                    print(database.lastError(), database.lastErrorMessage())
+                }
             }
         }
     }
     
-    func loadUserData() -> (idUser:Int,name:String, age:Int, job:String, introduction:String, picturePath:String, latitude: Double, longitude: Double)?{
-        var tuple: (idUser:Int,name:String, age:Int, job:String, introduction:String, picturePath:String, latitude: Double, longitude: Double)? = nil
+    func loadUserData() -> User?{
+        var user: User? = nil
         
         if openDatabase() {
-            let query = "select * from \(tableName) order by \(fieldUserId) asc"
+            let queryUser = "select * from \(tableUser) order by \(uFieldIdUser) asc"
             
             do {
-                let results = try database.executeQuery(query, values: nil)
+                let resultsUser = try database.executeQuery(queryUser, values: nil)
                 
-                if results.next() {
-                    tuple = (idUser: Int(results.int(forColumn: fieldUserId)),
-                             name:results.string(forColumn: fieldName) ?? "",
-                             age: Int(results.int(forColumn: fieldAge)),
-                             job:results.string(forColumn: fieldJob) ?? "",
-                             introduction:results.string(forColumn: fieldIntroduction) ?? "",
-                             picturePath:results.string(forColumn: fieldPathPicture) ?? "",
-                             latitude: results.double(forColumn: fieldLatitude),
-                             longitude: results.double(forColumn: fieldLongitude))
+                if resultsUser.next() {
+                    user = User()
+                    
+                    user?.bindResultSet(resultsUser: resultsUser)
+                    
+                    let querySection = "select s.\(sFieldIdSection) as \(sFieldIdSection), s.\(sFieldSectionName) as \(sFieldSectionName), s.\(sFieldAbbrev) as \(sFieldAbbrev) from \(tableSection) as s, \(tableUserSection) as us, \(tableUser) as u where s.\(sFieldIdSection) = us.\(usFieldIdSection) and us.\(usFieldIdUser) = u.\(usFieldIdUser) and u.\(usFieldIdUser) = ?"
+                    
+                    let resultsSection = try database.executeQuery(querySection, values: [user!.idUser])
+                    
+                    while resultsSection.next() {
+                        let section = Section()
+                        
+                        section.bindResultSet(resultsSection: resultsSection)
+                        
+                        user?.sections.append(section)
+                    }
                 }
-                
             } catch {
                 print(error.localizedDescription)
             }
@@ -117,15 +139,15 @@ class DBManager: NSObject {
             database.close()
         }
         
-        return tuple
+        return user
     }
     
-    func updateUserData(userData:(idUser:Int, picturePath:String, latitude: Double, longitude: Double)){
+    func updateUserData(userData:(idUser:Int64, picturePath:String, latitude: Double, longitude: Double)){
         if openDatabase() {
-            let query = "UPDATE \(tableName) SET \(fieldPathPicture)=?, \(fieldLatitude)=?, \(fieldLongitude)=? where \(fieldUserId)=?"
+            let query = "UPDATE \(tableUser) SET \(uFieldPathPicture)=?, \(uFieldLatitude)=?, \(uFieldLongitude)=? where \(usFieldIdUser)=?"
             
             do {
-                try database.executeUpdate(query, values: [userData.picturePath, userData.latitude, userData.longitude, userData.idUser,])
+                try database.executeUpdate(query, values: [userData.picturePath, userData.latitude, userData.longitude, userData.idUser])
             }
             catch {
                 print(error.localizedDescription)
@@ -139,10 +161,14 @@ class DBManager: NSObject {
         var deleted = false
         
         if openDatabase() {
-            let query = "DELETE FROM \(tableName)"
+            let queryDeleteUser = "DELETE FROM \(tableUser)"
+            let queryDeleteSection = "DELETE FROM \(tableSection)"
+            let queryDeleteUserSection = "DELETE FROM \(tableUserSection)"
             
             do {
-                try database.executeUpdate(query, values: nil)
+                try database.executeUpdate(queryDeleteUser, values: nil)
+                try database.executeUpdate(queryDeleteSection, values: nil)
+                try database.executeUpdate(queryDeleteUserSection, values: nil)
                 deleted = true
             }
             catch {

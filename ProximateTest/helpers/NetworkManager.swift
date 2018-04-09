@@ -18,7 +18,7 @@ class NetworkManager: NSObject {
                 if let jsonResult = response.result.value as? Dictionary<String,AnyObject>{
                     completionBlock(jsonResult,nil)
                 }else{
-                    completionBlock(nil,"Usuario incorrecto.")
+                    completionBlock(nil,"Ocurrió un error al hacer el login, por favor reintente más tarde.")
                 }
             }else{
                 completionBlock(nil,"Ocurrió un error al hacer el login, por favor reintente más tarde.")
@@ -31,7 +31,7 @@ class NetworkManager: NSObject {
         
         request.httpMethod = "POST"
         
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("\(token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         Alamofire.request(request).responseJSON { (response) -> Void in

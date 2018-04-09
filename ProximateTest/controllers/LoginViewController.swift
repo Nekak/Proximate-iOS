@@ -96,16 +96,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 if error != nil {
                     self.showAlertViewWith(title: "¡Aviso!", andMessage: error!, completion: nil)
                 }else{
-                    self.showAlertViewWith(title: "¡Aviso!", andMessage: (dictResult?.description)!, completion: {
-                        let defaults=UserDefaults.standard
-                        
-                        defaults.set(self.tfEmail.text!, forKey: USER_DEFAULTS)
-                        defaults.set(self.tfPassword.text!, forKey: PASSWORD_DEFAULTS)
-                        defaults.set("aToken", forKey: TOKEN_DEFAULTS)
-                        defaults.synchronize()
-                        
-                        NotificationCenter.default.post(name: Notification.Name(rawValue: LOGIN_DONE), object: nil)
-                    })
+                    let message = dictResult!["message"] as? String ?? "Error inesperado."
+                    let token = dictResult!["token"] as? String ?? ""
+                    
+                    if let errorBool = dictResult!["error"] as? Bool, errorBool == true{
+                        self.showAlertViewWith(title: "¡Aviso!", andMessage: message, completion: nil)
+                    }else if let successBool = dictResult!["success"] as? Bool, successBool == true, token != "" {
+                        self.showAlertViewWith(title: "¡Aviso!", andMessage: message, completion: {
+                            let defaults=UserDefaults.standard
+                            
+                            defaults.set(self.tfEmail.text!, forKey: USER_DEFAULTS)
+                            defaults.set(self.tfPassword.text!, forKey: PASSWORD_DEFAULTS)
+                            defaults.set(token, forKey: TOKEN_DEFAULTS)
+                            defaults.synchronize()
+                            
+                            NotificationCenter.default.post(name: Notification.Name(rawValue: LOGIN_DONE), object: nil)
+                        })
+                    }else{
+                        self.showAlertViewWith(title: "¡Aviso!", andMessage: message, completion: nil)
+                    }
                 }
             })
         }

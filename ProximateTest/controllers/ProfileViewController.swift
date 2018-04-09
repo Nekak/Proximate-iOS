@@ -23,7 +23,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     var geocoder:CLGeocoder?
     
-    var userData:(idUser:Int,name:String, age:Int, job:String, introduction:String, picturePath:String, latitude: Double, longitude: Double)?
+    var userData:User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,13 +66,31 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UI
                 if error != nil {
                     self.showAlertViewWith(title: "¡Aviso!", andMessage: error!, completion: nil)
                 }else{
-                    self.showAlertViewWith(title: "¡Aviso!", andMessage: (dictResult?.description)!, completion: {
-                        DBManager.shared.insertUserData(userData: (name: "Ramses Rodriguez", age: 28, job: "Desarrollador de aplicaciones móviles", introduction: "Estoy haciendo esta aplicación para entrar a trabajar a Proximate", picturePath: "", latitude: 0.0, longitude: 0.0))
-                        
-                        self.userData = DBManager.shared.loadUserData()
-                        
-                        self.showUserData()
-                    })
+                    let message = dictResult!["message"] as? String ?? "Error inesperado."
+                    
+                    if let errorBool = dictResult!["error"] as? Bool, errorBool == true{
+                        self.showAlertViewWith(title: "¡Aviso!", andMessage: message, completion: nil)
+                    }else if let successBool = dictResult!["success"] as? Bool, successBool == true, token != "" {
+                        self.showAlertViewWith(title: "¡Aviso!", andMessage: message, completion: {
+                            let auxUser = User()
+                            
+                            if let arrData = dictResult!["data"] as? Array<Dictionary<String,AnyObject>>{
+                                if arrData.count > 0 {
+                                    let dictUser = arrData[0]
+                                    
+                                    auxUser.parseFromDictionary(dictResult: dictUser)
+                                    
+                                    DBManager.shared.insertUserData(userData: auxUser)
+                                    
+                                    self.userData = DBManager.shared.loadUserData()
+                                }
+                                
+                                self.showUserData()
+                            }
+                        })
+                    }else{
+                        self.showAlertViewWith(title: "¡Aviso!", andMessage: message, completion: nil)
+                    }
                 }
             })
         })
@@ -80,12 +98,12 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     func showUserData(){
         // Do any additional setup after loading the view.
-        if userData?.picturePath == "" {
+        if userData?.pathPicture == "" {
             label.text="Para tomar una foto, toque la imagen de la cámara."
         }else{
             if userData != nil {
                 self.currentLocation = CLLocation(latitude: CLLocationDegrees(exactly: userData!.latitude)!, longitude: CLLocationDegrees(exactly: userData!.longitude)!)
-                self.getImage(imageName: userData!.picturePath)
+                self.getImage(imageName: userData!.pathPicture)
             }
             
             loadAddress()
@@ -95,23 +113,37 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate,UI
             let myString=NSMutableAttributedString(string: "")
             let boldAttribute = [NSAttributedStringKey.font:UIFont.boldSystemFont(ofSize: 20)] as [NSAttributedStringKey : Any]
             
-            let name=NSAttributedString(string: "\(userData!.name)\n\n", attributes: boldAttribute)
+            let name=NSAttributedString(string: "\(userData!.names) \(userData!.lastnames)\n\n", attributes: boldAttribute)
             
             myString.append(name)
             
             let mediumAttribute = [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 16)] as [NSAttributedStringKey : Any]
             
-            let age = NSAttributedString(string: "\(userData!.age)\n\n", attributes: mediumAttribute)
+            let email = NSAttributedString(string: "\(userData!.email)\n\n", attributes: mediumAttribute)
             
-            myString.append(age)
+            myString.append(email)
             
             let greyAttribute = [NSAttributedStringKey.foregroundColor:UIColor.darkGray] as [NSAttributedStringKey : Any]
             
-            let job = NSAttributedString(string: "\(userData!.job)\n\n", attributes: greyAttribute)
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
             
-            myString.append(job)
+            if let dateLL = formatter.date(from: userData!.lastLogin){
+                let formatterLL = DateFormatter()
+                formatterLL.dateFormat = "dd-MM-yyyy 'a las' HH:mm:ss"
+                formatterLL.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+                let dateStr = formatterLL.string(from: dateLL)
+                
+                let lastLogin = NSAttributedString(string: "Último inicio de sesión: \(dateStr)\n\n", attributes: greyAttribute)
+                
+                myString.append(lastLogin)
+            }
             
-            myString.append(NSAttributedString(string: userData!.introduction))
+            myString.append(NSAttributedString(string: "Secciones:\n\n"))
+            
+            for (_,section) in userData!.sections.enumerated() {
+                myString.append(NSAttributedString(string: "\(section.sectionName)\n\n"))
+            }
             
             textView.attributedText = myString
         }
